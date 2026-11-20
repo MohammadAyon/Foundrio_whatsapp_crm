@@ -41,7 +41,7 @@ interface ConversationListProps {
 
 const STATUS_COLORS: Record<ConversationStatus, string> = {
   open: "bg-primary",
-  pending: "bg-amber-500",
+  pending: "bg-status-warning",
   closed: "bg-muted-foreground",
 };
 
@@ -410,7 +410,7 @@ export function ConversationList({
             <p className="text-sm text-muted-foreground">{t("noConversations")}</p>
           </div>
         ) : (
-          <div className="flex flex-col">
+          <div className="flex flex-col divide-y divide-border">
             {filtered.map((conv) => (
               <ConversationItem
                 key={conv.id}
@@ -460,8 +460,10 @@ function ConversationItem({
     <button
       onClick={handleClick}
       className={cn(
-        "flex w-full items-start gap-3 px-3 py-3 text-left transition-colors hover:bg-muted/50",
-        isActive && "border-l-2 border-primary bg-muted/70"
+        "flex w-full items-start gap-3 px-3 py-3 text-left transition-colors",
+        isActive
+          ? "border-l-2 border-primary bg-primary-soft"
+          : "border-l-2 border-transparent hover:bg-muted/40"
       )}
     >
       {/* Avatar */}
@@ -483,7 +485,7 @@ function ConversationItem({
           <span className="truncate text-sm font-medium text-foreground">
             {displayName}
           </span>
-          <span className="shrink-0 text-[10px] text-muted-foreground">{timeAgo}</span>
+          <span className="shrink-0 font-mono text-[10px] text-muted-foreground">{timeAgo}</span>
         </div>
         <div className="mt-0.5 flex items-center justify-between gap-2">
           <p className="truncate text-xs text-muted-foreground">

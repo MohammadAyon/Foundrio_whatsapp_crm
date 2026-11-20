@@ -9,6 +9,20 @@ Versions follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 Pre-1.0, `MINOR` bumps cover new modules; `PATCH` bumps cover bug fixes
 and polish.
 
+## [0.8.2] — 2026-11-20
+
+### Added
+
+- **Foundrio Design & Consultant brand re-skin.**
+  - New default theme `foundrio` matching the Foundrio architectural brand (foundrio-bd.com).
+  - Editorial architectural visual system: warm charcoal & stone neutral palette (hue 65), terra-cotta primary accent (`oklch(0.52 0.15 35)` / `#B5472B`), hairline dividers (1px), sharp radius (`0.3125rem`), and flat surfaces.
+  - Heading font `DM Serif Display` loaded for page titles, dashboard greeting, auth titles, and large numerals.
+  - Split-panel brand layout on authentication pages (`/login`, `/signup`, `/forgot-password`, `/reset-password`, `/join`) with Foundrio logo, architectural blueprint grid pattern, and branding copy.
+  - Architectural line-drawing background pattern for Inbox message threads.
+  - Active navigation indicator with hairline accent bar and soft primary background.
+  - Restyled role badges across the shell and settings within a unified, non-rainbow palette.
+  - Foundrio lettermark favicon and updated metadata.
+
 ## [0.8.1] — 2026-07-10
 
 Fixes inbound chats fragmenting into multiple threads for the same

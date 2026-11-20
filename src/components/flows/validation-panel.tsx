@@ -32,7 +32,7 @@ export function ValidationPanel() {
     // sticky-positioned over scrolled-behind node cards (a translucent
     // bg-emerald-500/10 would bleed through ugly).
     return (
-      <div className="flex items-center gap-2 rounded-lg border border-emerald-600/50 bg-background p-3 text-sm font-medium text-emerald-300">
+      <div className="flex items-center gap-2 rounded-[var(--radius)] border border-status-good/40 bg-background p-3 text-sm font-medium text-status-good">
         <CircleCheck className="h-4 w-4 shrink-0" />
         {t("noIssues")}
       </div>
@@ -43,8 +43,8 @@ export function ValidationPanel() {
   return (
     <div
       className={cn(
-        "rounded-lg border bg-background p-3",
-        errors.length > 0 ? "border-red-500/40" : "border-amber-500/40",
+        "rounded-[var(--radius)] border bg-background p-3",
+        errors.length > 0 ? "border-status-critical/40" : "border-status-warning/40",
       )}
     >
       <div className="mb-2 flex items-center gap-2 text-xs text-muted-foreground">

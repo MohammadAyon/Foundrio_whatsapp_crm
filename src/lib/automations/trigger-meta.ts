@@ -18,22 +18,22 @@ export const TRIGGER_META: Record<AutomationTriggerType, TriggerMeta> = {
     pillClass: 'border-teal-500/30 bg-teal-500/10 text-teal-300',
   },
   keyword_match: {
-    pillClass: 'border-purple-500/30 bg-purple-500/10 text-purple-300',
+    pillClass: 'border-primary/40 bg-primary/10 text-primary',
   },
   new_contact_created: {
     pillClass: 'border-primary/30 bg-primary/10 text-primary',
   },
   conversation_assigned: {
-    pillClass: 'border-cyan-500/30 bg-cyan-500/10 text-cyan-300',
+    pillClass: 'border-border bg-muted text-foreground',
   },
   tag_added: {
-    pillClass: 'border-amber-500/30 bg-amber-500/10 text-amber-300',
+    pillClass: 'border-border bg-card-2 text-foreground',
   },
   time_based: {
-    pillClass: 'border-slate-500/30 bg-slate-500/10 text-muted-foreground',
+    pillClass: 'border-border bg-muted/60 text-muted-foreground',
   },
   interactive_reply: {
-    pillClass: 'border-pink-500/30 bg-pink-500/10 text-pink-300',
+    pillClass: 'border-primary/40 bg-primary/10 text-primary',
   },
 }
 
@@ -44,7 +44,7 @@ export function isKnownTrigger(t: string): t is AutomationTriggerType {
 export function triggerMeta(t: AutomationTriggerType | string): TriggerMeta {
   return (
     TRIGGER_META[t as AutomationTriggerType] ?? {
-      pillClass: 'border-slate-500/30 bg-slate-500/10 text-muted-foreground',
+      pillClass: 'border-border bg-muted/60 text-muted-foreground',
     }
   )
 }

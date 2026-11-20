@@ -624,7 +624,7 @@ export function MessageComposer({
         />
       ) : recording ? (
         // Recording bar — replaces the composer while the mic is live.
-        <div className="flex items-center gap-3 rounded-xl border border-border bg-muted px-4 py-2.5">
+        <div className="flex items-center gap-3 rounded-[var(--radius)] border border-border bg-muted px-4 py-2.5">
           <span className="flex h-2.5 w-2.5 shrink-0 animate-pulse rounded-full bg-red-500" />
           <span className="flex-1 text-sm text-foreground">
             {t("recording", { current: formatDuration(recordSeconds), max: formatDuration(MAX_RECORDING_SECONDS) })}
@@ -862,7 +862,7 @@ function MediaDraftPreview({
 }) {
   const tGate = useTranslations("GatedButton");
   return (
-    <div className="rounded-xl border border-border bg-muted/40 p-3">
+    <div className="rounded-[var(--radius)] border border-border bg-muted/40 p-3">
       <div className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           {draft.kind === "image" && (

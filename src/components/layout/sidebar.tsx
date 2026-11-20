@@ -39,28 +39,24 @@ const ROLE_CHIP: Record<
   owner: {
     icon: Crown,
     labelKey: "roleOwner",
-    // Amber: scarce, immutable, "the boss" — gets visual emphasis.
     className:
-      "border-amber-500/40 bg-amber-500/10 text-amber-300",
+      "border-primary/50 bg-primary/15 text-primary font-medium",
   },
   admin: {
     icon: Shield,
     labelKey: "roleAdmin",
-    // Primary-tinted: significant but not as scarce as owner.
     className:
-      "border-primary/40 bg-primary/10 text-primary",
+      "border-primary/30 bg-primary/10 text-primary",
   },
   agent: {
     icon: UserCog,
     labelKey: "roleAgent",
-    // Neutral slate: the operational default.
     className:
       "border-border bg-muted text-foreground",
   },
   viewer: {
     icon: User,
     labelKey: "roleViewer",
-    // Muted slate: read-only role; visually quieter than agent.
     className:
       "border-border bg-card text-muted-foreground",
   },
@@ -216,8 +212,11 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
         </div>
 
         {/* Main navigation */}
-        <nav className="flex-1 overflow-y-auto px-3 py-4">
-          <ul className="flex flex-col gap-1">
+        <nav className="flex-1 overflow-y-auto px-3 py-3">
+          <div className="px-3 pb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/70">
+            Navigation
+          </div>
+          <ul className="flex flex-col gap-0.5">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||
@@ -279,9 +278,12 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
             })}
           </ul>
 
-          <div className="my-4 border-t border-border" />
+          <div className="my-3 border-t border-border" />
 
-          <ul className="flex flex-col gap-1">
+          <div className="px-3 pb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/70">
+            System
+          </div>
+          <ul className="flex flex-col gap-0.5">
             {bottomNavItems.map((item) => {
               const isActive = pathname.startsWith(item.href);
               return (

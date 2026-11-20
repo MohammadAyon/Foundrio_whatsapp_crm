@@ -26,15 +26,15 @@ export interface StatusDisplay {
 export const broadcastStatusConfig: Record<BroadcastStatus, StatusDisplay> = {
   draft: {
     label: "draft",
-    classes: "bg-slate-500/10 text-muted-foreground border-slate-500/20",
+    classes: "bg-stone-500/10 text-muted-foreground border-stone-500/20",
   },
   scheduled: {
     label: "scheduled",
-    classes: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    classes: "bg-stone-500/10 text-muted-foreground border-stone-500/20",
   },
   sending: {
     label: "sending",
-    classes: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+    classes: "bg-amber-500/10 text-amber-500 border-amber-500/20",
     pulse: true,
   },
   sent: {
@@ -43,18 +43,18 @@ export const broadcastStatusConfig: Record<BroadcastStatus, StatusDisplay> = {
   },
   failed: {
     label: "failed",
-    classes: "bg-red-500/10 text-red-400 border-red-500/20",
+    classes: "bg-red-500/10 text-red-500 border-red-500/20",
   },
 };
 
 export const recipientStatusConfig: Record<RecipientStatus, StatusDisplay> = {
   pending: {
     label: "pending",
-    classes: "bg-slate-500/10 text-muted-foreground border-slate-500/20",
+    classes: "bg-stone-500/10 text-muted-foreground border-stone-500/20",
   },
   sent: {
     label: "sent",
-    classes: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    classes: "bg-stone-500/10 text-muted-foreground border-stone-500/20",
   },
   delivered: {
     label: "delivered",
@@ -66,11 +66,11 @@ export const recipientStatusConfig: Record<RecipientStatus, StatusDisplay> = {
   },
   replied: {
     label: "replied",
-    classes: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    classes: "bg-primary/10 text-primary border-primary/20",
   },
   failed: {
     label: "failed",
-    classes: "bg-red-500/10 text-red-400 border-red-500/20",
+    classes: "bg-red-500/10 text-red-500 border-red-500/20",
   },
 };
 
