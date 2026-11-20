@@ -77,25 +77,35 @@ function SignupPageInner() {
       : "/dashboard";
     const emailRedirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
 
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: fullName,
+    try {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            full_name: fullName,
+          },
+          emailRedirectTo,
         },
-        emailRedirectTo,
-      },
-    });
+      });
 
-    if (error) {
-      setError(error.message);
+      if (error) {
+        setError(error.message);
+        return;
+      }
+
+      setSuccess(true);
+    } catch (reason) {
+      setError(
+        reason instanceof TypeError
+          ? t("networkError")
+          : reason instanceof Error
+            ? reason.message
+            : t("networkError"),
+      );
+    } finally {
       setLoading(false);
-      return;
     }
-
-    setSuccess(true);
-    setLoading(false);
   };
 
   if (success) {

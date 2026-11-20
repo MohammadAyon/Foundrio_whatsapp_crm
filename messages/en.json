@@ -2263,6 +2263,7 @@
   "SignupPage": {
     "passwordsMismatch": "Passwords do not match",
     "passwordTooShort": "Password must be at least 6 characters",
+    "networkError": "Could not connect to the authentication server. Check your Supabase URL and connection, then try again.",
     "checkEmailTitle": "Check your email",
     "checkEmailDesc": "We've sent a confirmation link to <strong>{email}</strong>. Please check your inbox and click the link to verify your account.",
     "backToSignIn": "Back to sign in",
