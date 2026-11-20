@@ -2049,6 +2049,10 @@
         "dark": "escuro"
       },
       "themes": {
+        "foundrio": {
+          "name": "Foundrio",
+          "tagline": "Calor arquitetônico — o acento da marca Foundrio."
+        },
         "violet": {
           "name": "Violeta",
           "tagline": "O padrão — transmite confiança com um toque descontraído."

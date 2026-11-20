@@ -1,12 +1,8 @@
 import { ImageResponse } from "next/og";
 
-// Replaces the default Next.js favicon with the brand mark — Hostinger
-// violet rounded square + white chat-square glyph — matching the
-// sidebar logo in `src/components/layout/sidebar.tsx`. Next.js renders
-// this at build time and auto-injects <link rel="icon"> into <head>.
-//
-// This route takes precedence over src/app/favicon.ico, which is the
-// Next.js default and can stay on disk harmlessly (or be removed).
+// Foundrio favicon — warm brick square with the stylised "F" lettermark
+// matching the brand mark uploaded at /public/foundrio-logo.jpg.
+// The "F" is rendered as the geometric double-line shape visible in the logo.
 
 export const runtime = "edge";
 export const size = { width: 32, height: 32 };
@@ -22,21 +18,23 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#7c3aed", // primary (Hostinger-aligned purple)
-          borderRadius: 6,
+          background: "#16171A",
+          borderRadius: 4,
         }}
       >
+        {/* Stylised "F" lettermark in Foundrio terra-cotta */}
         <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
           fill="none"
-          stroke="#ffffff"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
         >
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          {/* Vertical left bar */}
+          <rect x="3" y="3" width="3.5" height="16" fill="#B5472B" />
+          {/* Top horizontal bar */}
+          <rect x="6.5" y="3" width="12" height="3.5" fill="#B5472B" />
+          {/* Middle horizontal bar */}
+          <rect x="6.5" y="9.25" width="8" height="3" fill="#B5472B" />
         </svg>
       </div>
     ),

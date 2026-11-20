@@ -8,14 +8,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { MessageSquare, UsersRound } from "lucide-react";
+import { AuthShell } from "@/components/auth/auth-shell";
 
 // `useSearchParams` opts the component out of static prerendering
 // unless it sits under a Suspense boundary. We split the form into
@@ -84,99 +77,96 @@ function LoginPageInner() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <Card className="w-full max-w-md border-border bg-card">
-        <CardHeader className="items-center text-center">
-          <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-            {inviteToken ? (
-              <UsersRound className="h-6 w-6 text-primary" />
-            ) : (
-              <MessageSquare className="h-6 w-6 text-primary" />
-            )}
-          </div>
-          <CardTitle className="text-xl text-foreground">
-            {inviteToken ? t('titleAccept') : t('titleWelcome')}
-          </CardTitle>
-          <CardDescription className="text-muted-foreground">
-            {inviteToken
-              ? t('descAccept')
-              : t('descWelcome')}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleLogin} className="flex flex-col gap-4">
-            {linkErrorMessage && !error && (
-              <div className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-300">
-                {linkErrorMessage}
-              </div>
-            )}
-            {error && (
-              <div className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400">
-                {error}
-              </div>
-            )}
+    <AuthShell>
+      <div className="w-full max-w-sm">
+        {/* Mono section label */}
+        <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
+          {inviteToken ? "Team Invitation" : "Account Access"}
+        </p>
+        <h1
+          className="mb-1 text-2xl font-normal text-foreground"
+          style={{ fontFamily: "var(--font-heading, serif)" }}
+        >
+          {inviteToken ? t("titleAccept") : t("titleWelcome")}
+        </h1>
+        <p className="mb-8 text-sm text-muted-foreground">
+          {inviteToken ? t("descAccept") : t("descWelcome")}
+        </p>
 
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="email" className="text-muted-foreground">
-                {t('emailLabel')}
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder={t('emailPlaceholder')}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="border-border bg-muted text-foreground placeholder:text-muted-foreground focus-visible:border-primary focus-visible:ring-primary/20"
-              />
+        <form onSubmit={handleLogin} className="flex flex-col gap-5">
+          {linkErrorMessage && !error && (
+            <div className="rounded border border-status-warning/30 bg-status-warning/10 px-4 py-3 text-sm text-status-warning">
+              {linkErrorMessage}
             </div>
+          )}
+          {error && (
+            <div className="rounded border border-status-critical/30 bg-status-critical/10 px-4 py-3 text-sm text-status-critical">
+              {error}
+            </div>
+          )}
 
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="password" className="text-muted-foreground">
-                {t('passwordLabel')}
+          <div className="flex flex-col gap-1.5">
+            <Label htmlFor="email" className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+              {t("emailLabel")}
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder={t("emailPlaceholder")}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="border-border bg-card text-foreground placeholder:text-muted-foreground/60 focus-visible:border-primary focus-visible:ring-primary/20"
+            />
+          </div>
+
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center justify-between">
+              <Label htmlFor="password" className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                {t("passwordLabel")}
               </Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder={t('passwordPlaceholder')}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="border-border bg-muted text-foreground placeholder:text-muted-foreground focus-visible:border-primary focus-visible:ring-primary/20"
-              />
-              {/* Below the input so Tab goes email -> password -> link. */}
               <Link
                 href="/forgot-password"
-                className="self-end text-sm text-primary hover:text-primary/80"
+                className="text-xs text-primary hover:text-primary-hover"
               >
-                {t('forgotPassword')}
+                {t("forgotPassword")}
               </Link>
             </div>
+            <Input
+              id="password"
+              type="password"
+              placeholder={t("passwordPlaceholder")}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="border-border bg-card text-foreground placeholder:text-muted-foreground/60 focus-visible:border-primary focus-visible:ring-primary/20"
+            />
+          </div>
 
-            <Button
-              type="submit"
-              disabled={loading}
-              className="mt-2 h-10 w-full bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
-            >
-              {loading ? t('signingIn') : t('signIn')}
-            </Button>
-          </form>
+          <Button
+            type="submit"
+            disabled={loading}
+            className="mt-1 h-10 w-full bg-primary text-primary-foreground hover:bg-primary-hover disabled:opacity-50"
+          >
+            {loading ? t("signingIn") : t("signIn")}
+          </Button>
+        </form>
 
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            {t('noAccount')}{" "}
-            <Link
-              href={
-                inviteToken
-                  ? `/signup?invite=${encodeURIComponent(inviteToken)}`
-                  : "/signup"
-              }
-              className="text-primary hover:text-primary/80"
-            >
-              {t('createAccount')}
-            </Link>
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+        <p className="mt-6 text-center text-sm text-muted-foreground">
+          {t("noAccount")}{" "}
+          <Link
+            href={
+              inviteToken
+                ? `/signup?invite=${encodeURIComponent(inviteToken)}`
+                : "/signup"
+            }
+            className="text-primary hover:text-primary-hover"
+          >
+            {t("createAccount")}
+          </Link>
+        </p>
+      </div>
+    </AuthShell>
   );
 }
+

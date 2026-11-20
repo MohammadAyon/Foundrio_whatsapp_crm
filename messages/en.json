@@ -17,7 +17,7 @@
     "linkInvalid": "That link couldn’t be used to sign you in. If you were confirming your email, it may already be verified — just sign in below. For a password reset, request a new link and open it in the same browser you requested it from."
   },
   "Sidebar": {
-    "title": "CRM Template for WhatsApp",
+    "title": "Foundrio CRM",
     "primaryNav": "Primary",
     "dashboard": "Dashboard",
     "inbox": "Inbox",
@@ -2049,9 +2049,13 @@
         "dark": "dark"
       },
       "themes": {
+        "foundrio": {
+          "name": "Foundrio",
+          "tagline": "Architectural warmth — the Foundrio brand accent."
+        },
         "violet": {
           "name": "Violet",
-          "tagline": "The default — confident, slightly playful."
+          "tagline": "The original — confident, slightly playful."
         },
         "emerald": {
           "name": "Emerald",

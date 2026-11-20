@@ -2049,6 +2049,10 @@
         "dark": "다크"
       },
       "themes": {
+        "foundrio": {
+          "name": "파운드리오",
+          "tagline": "건축적 따뜻함 — Foundrio 브랜드 액센트."
+        },
         "violet": {
           "name": "바이올렛",
           "tagline": "자신감에 경쾌함을 더한 기본 테마입니다."
