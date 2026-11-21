@@ -14,6 +14,7 @@ import {
   STORAGE_KEY,
   THEME_IDS,
 } from "@/lib/themes";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   variable: "--font-sans",
@@ -136,6 +137,7 @@ export default async function RootLayout({
             <ThemedToaster />
           </ThemeProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
