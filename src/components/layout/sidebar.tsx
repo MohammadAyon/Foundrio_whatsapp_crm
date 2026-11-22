@@ -40,13 +40,13 @@ const ROLE_CHIP: Record<
     icon: Crown,
     labelKey: "roleOwner",
     className:
-      "border-primary/50 bg-primary/15 text-primary font-medium",
+      "border-border bg-muted text-foreground font-medium",
   },
   admin: {
     icon: Shield,
     labelKey: "roleAdmin",
     className:
-      "border-primary/30 bg-primary/10 text-primary",
+      "border-border bg-muted text-foreground",
   },
   agent: {
     icon: UserCog,
@@ -172,7 +172,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
       <aside
         className={cn(
           // Mobile: fixed drawer that slides in from the left.
-          "fixed inset-y-0 left-0 z-40 flex h-full w-64 flex-col border-r border-border bg-sidebar",
+          "fixed inset-y-0 left-0 z-40 flex h-full w-64 flex-col border-r border-sidebar-border bg-sidebar",
           "transition-transform duration-200 ease-out will-change-transform",
           open ? "translate-x-0" : "-translate-x-full",
           // Desktop: static, always visible — reset all the mobile framing.
@@ -182,7 +182,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
       >
         {/* Logo row. On mobile we put a close button here; on desktop the
             close button is hidden since the sidebar is always-visible. */}
-        <div className="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-border px-4">
+        <div className="flex h-14 shrink-0 items-center justify-between gap-2 px-5">
           <Link href="/dashboard" className="flex items-center gap-2.5">
             {/* Foundrio monogram — stylised F in terra-cotta */}
             <svg
@@ -197,7 +197,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
               <rect x="8" y="4" width="15" height="4" fill="var(--primary)" />
               <rect x="8" y="12" width="10" height="3.5" fill="var(--primary)" />
             </svg>
-            <span className="text-sm font-semibold tracking-wide text-foreground">
+            <span className="text-sm font-semibold tracking-tight text-foreground">
               {t("title")}
             </span>
           </Link>
@@ -213,9 +213,6 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
 
         {/* Main navigation */}
         <nav className="flex-1 overflow-y-auto px-3 py-3">
-          <div className="px-3 pb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/70">
-            Navigation
-          </div>
           <ul className="flex flex-col gap-0.5">
             {navItems.map((item) => {
               const isActive =
@@ -239,18 +236,18 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                     className={cn(
                       // Taller on mobile so fingers can hit the row reliably (≥44px).
                       // Architectural active bar: thin accent left border + soft bg.
-                      "relative flex items-center gap-3 px-3 py-2.5 text-sm font-medium transition-colors lg:py-2",
+                      "group/nav relative flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors duration-150 lg:py-2",
                       isActive
-                        ? "bg-primary-soft text-primary before:absolute before:inset-y-1 before:left-0 before:w-0.5 before:rounded-full before:bg-primary"
-                        : "text-muted-foreground hover:bg-accent hover:text-foreground",
+                        ? "bg-sidebar-accent font-medium text-foreground before:absolute before:inset-y-2 before:-left-3 before:w-0.5 before:rounded-full before:bg-primary"
+                        : "text-muted-foreground hover:bg-sidebar-accent/70 hover:text-foreground",
                     )}
                   >
-                    <item.icon className="h-4 w-4" />
+                    <item.icon aria-hidden className={cn("h-4 w-4 shrink-0", isActive && "text-primary")} />
                     <span className="flex-1">{t(item.labelKey as string)}</span>
                     {item.beta && (
                       <span
                         aria-label={t("beta")}
-                        className="rounded-full border border-amber-500/40 bg-amber-500/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-amber-300"
+                        className="rounded-full border border-border px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground"
                       >
                         {t("beta")}
                       </span>
@@ -258,11 +255,8 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                     {showUnreadDot && (
                       <span
                         aria-label={t("unreadConversations", { count: totalUnread })}
-                        className="relative flex h-2 w-2"
-                      >
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-                      </span>
+                        className="inline-flex h-2 w-2 rounded-full bg-primary"
+                      />
                     )}
                     {showNotificationBadge && (
                       <span
@@ -278,11 +272,8 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
             })}
           </ul>
 
-          <div className="my-3 border-t border-border" />
+          <div className="mx-3 my-3 border-t border-sidebar-border" />
 
-          <div className="px-3 pb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/70">
-            System
-          </div>
           <ul className="flex flex-col gap-0.5">
             {bottomNavItems.map((item) => {
               const isActive = pathname.startsWith(item.href);
@@ -291,13 +282,13 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative flex items-center gap-3 px-3 py-2.5 text-sm font-medium transition-colors lg:py-2",
+                      "group/nav relative flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors duration-150 lg:py-2",
                       isActive
-                        ? "bg-primary-soft text-primary before:absolute before:inset-y-1 before:left-0 before:w-0.5 before:rounded-full before:bg-primary"
-                        : "text-muted-foreground hover:bg-accent hover:text-foreground",
+                        ? "bg-sidebar-accent font-medium text-foreground before:absolute before:inset-y-2 before:-left-3 before:w-0.5 before:rounded-full before:bg-primary"
+                        : "text-muted-foreground hover:bg-sidebar-accent/70 hover:text-foreground",
                     )}
                   >
-                    <item.icon className="h-4 w-4" />
+                    <item.icon aria-hidden className={cn("h-4 w-4 shrink-0", isActive && "text-primary")} />
                     {t(item.labelKey as string)}
                   </Link>
                 </li>
@@ -307,7 +298,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
         </nav>
 
         {/* User section */}
-        <div className="shrink-0 border-t border-border p-3">
+        <div className="shrink-0 border-t border-sidebar-border p-3">
           {/* Account name display — surfaced only when the account
               name differs from the user's own name (see
               `showAccountStrip`). For a default solo account the two
@@ -352,7 +343,7 @@ export function Sidebar({ open = false, onClose }: SidebarProps) {
                     alt={profile.full_name ?? t("defaultAvatar")}
                   />
                 ) : null}
-                <AvatarFallback className="bg-primary/10 text-sm font-medium text-primary">
+                <AvatarFallback className="bg-muted text-sm font-medium text-foreground">
                   {profile?.full_name?.charAt(0)?.toUpperCase() ??
                     profile?.email?.charAt(0)?.toUpperCase() ??
                     "U"}

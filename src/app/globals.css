@@ -90,93 +90,127 @@
 
 /* ---- MODE: neutral surfaces ---- */
 
-/* Foundrio warm-neutral dark — charcoal/stone, hue ~65 (warm), low chroma */
+/* ------------------------------------------------------------
+ * "Quiet canvas" — minimal, focus-first neutrals.
+ *
+ * Color theory behind the system:
+ *   • 60 / 30 / 10 — ~60% canvas, ~30% surface + ink, ≤10% accent.
+ *     The accent is reserved for what the user can ACT on
+ *     (primary CTA, unread signals, focus rings). Structure and
+ *     navigation stay neutral so the eye isn't pulled around.
+ *   • Warm-on-cool — neutrals lean very slightly cool (hue 260,
+ *     chroma ≤0.012). The terracotta accent (hue 35) sits near its
+ *     complement, so warm "advances" and the canvas "recedes":
+ *     the accent pops without needing more saturation.
+ *   • Hierarchy by value, not hue — canvas → card → muted differ
+ *     only in lightness; text uses 2 steps (ink / muted ink).
+ *   • Status colors are desaturated and contrast-checked (≥4.5:1)
+ *     so alerts read clearly without competing with the accent.
+ * ------------------------------------------------------------ */
+
+/* Dark — cool graphite (never pure black, reduces halation) */
 :root,
 html[data-mode="dark"] {
-  --background: oklch(0.125 0.008 65);
-  --foreground: oklch(0.96 0.005 65);
-  --card: oklch(0.17 0.008 65);
-  --card-2: oklch(0.20 0.008 65);
-  --card-foreground: oklch(0.96 0.005 65);
-  --popover: oklch(0.17 0.008 65);
-  --popover-foreground: oklch(0.96 0.005 65);
-  --secondary: oklch(0.215 0.008 65);
-  --secondary-foreground: oklch(0.96 0.005 65);
-  --muted: oklch(0.215 0.008 65);
-  --muted-foreground: oklch(0.60 0.01 65);
-  --accent: oklch(0.215 0.008 65);
-  --accent-foreground: oklch(0.96 0.005 65);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.265 0.008 65);
-  --input: oklch(0.265 0.008 65);
-  /* Chart ramp: accent-driven warm neutrals */
-  --chart-2: oklch(0.52 0.06 65);
-  --chart-3: oklch(0.42 0.04 65);
-  --chart-4: oklch(0.34 0.03 65);
-  --chart-5: oklch(0.26 0.02 65);
-  /* Sharper, architectural radius */
-  --radius: 0.3125rem;
-  --sidebar: oklch(0.155 0.008 65);
-  --sidebar-foreground: oklch(0.96 0.005 65);
-  --sidebar-accent: oklch(0.215 0.008 65);
-  --sidebar-accent-foreground: oklch(0.96 0.005 65);
-  --sidebar-border: oklch(0.265 0.008 65);
-  --status-good: #0ca30c;
-  --status-warning: #fab219;
-  --status-serious: #ec835a;
-  --status-critical: #e05252;
+  --background: oklch(0.155 0.006 260);
+  --foreground: oklch(0.95 0.004 260);
+  --card: oklch(0.19 0.007 260);
+  --card-2: oklch(0.215 0.007 260);
+  --card-foreground: oklch(0.95 0.004 260);
+  --popover: oklch(0.2 0.007 260);
+  --popover-foreground: oklch(0.95 0.004 260);
+  --secondary: oklch(0.235 0.007 260);
+  --secondary-foreground: oklch(0.95 0.004 260);
+  --muted: oklch(0.235 0.007 260);
+  --muted-foreground: oklch(0.7 0.01 260);
+  --accent: oklch(0.235 0.007 260);
+  --accent-foreground: oklch(0.95 0.004 260);
+  --destructive: oklch(0.68 0.17 25);
+  --border: oklch(0.27 0.007 260);
+  --input: oklch(0.33 0.008 260);
+  /* Chart ramp: cool neutrals, so chart-1 (accent) is the focal series */
+  --chart-2: oklch(0.62 0.015 260);
+  --chart-3: oklch(0.5 0.012 260);
+  --chart-4: oklch(0.4 0.01 260);
+  --chart-5: oklch(0.32 0.008 260);
+  --radius: 0.5rem;
+  /* Sidebar shares the canvas — no competing slab of color */
+  --sidebar: oklch(0.155 0.006 260);
+  --sidebar-foreground: oklch(0.95 0.004 260);
+  --sidebar-accent: oklch(0.215 0.007 260);
+  --sidebar-accent-foreground: oklch(0.95 0.004 260);
+  --sidebar-border: oklch(0.25 0.007 260);
+  --status-good: oklch(0.74 0.13 150);
+  --status-warning: oklch(0.82 0.13 80);
+  --status-serious: oklch(0.74 0.12 50);
+  --status-critical: oklch(0.7 0.16 25);
 }
 
-/* Foundrio warm-neutral light — stone/concrete, hue ~65, low chroma */
+/* Light — near-white canvas, pure-white cards, graphite ink */
 html[data-mode="light"] {
-  --background: oklch(0.97 0.006 65);
-  --foreground: oklch(0.165 0.01 65);
+  --background: oklch(0.985 0.002 260);
+  --foreground: oklch(0.21 0.012 260);
   --card: oklch(1 0 0);
-  --card-2: oklch(0.975 0.005 65);
-  --card-foreground: oklch(0.165 0.01 65);
+  --card-2: oklch(0.975 0.003 260);
+  --card-foreground: oklch(0.21 0.012 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.165 0.01 65);
-  --secondary: oklch(0.945 0.008 65);
-  --secondary-foreground: oklch(0.22 0.01 65);
-  --muted: oklch(0.945 0.008 65);
-  --muted-foreground: oklch(0.46 0.015 65);
-  --accent: oklch(0.935 0.009 65);
-  --accent-foreground: oklch(0.22 0.01 65);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.875 0.009 65);
-  --input: oklch(0.875 0.009 65);
-  /* Chart ramp: warm neutrals */
-  --chart-2: oklch(0.60 0.05 65);
-  --chart-3: oklch(0.70 0.04 65);
-  --chart-4: oklch(0.80 0.03 65);
-  --chart-5: oklch(0.88 0.02 65);
-  --radius: 0.3125rem;
-  --sidebar: oklch(0.96 0.006 65);
-  --sidebar-foreground: oklch(0.165 0.01 65);
-  --sidebar-accent: oklch(0.935 0.009 65);
-  --sidebar-accent-foreground: oklch(0.22 0.01 65);
-  --sidebar-border: oklch(0.875 0.009 65);
-  --status-good: #0b7f0b;
-  --status-warning: #946100;
-  --status-serious: #c2532a;
-  --status-critical: #c43232;
+  --popover-foreground: oklch(0.21 0.012 260);
+  --secondary: oklch(0.965 0.003 260);
+  --secondary-foreground: oklch(0.25 0.012 260);
+  --muted: oklch(0.965 0.003 260);
+  --muted-foreground: oklch(0.52 0.012 260);
+  --accent: oklch(0.955 0.004 260);
+  --accent-foreground: oklch(0.21 0.012 260);
+  --destructive: oklch(0.53 0.18 25);
+  --border: oklch(0.915 0.004 260);
+  --input: oklch(0.86 0.006 260);
+  /* Chart ramp: cool neutrals */
+  --chart-2: oklch(0.55 0.015 260);
+  --chart-3: oklch(0.68 0.012 260);
+  --chart-4: oklch(0.79 0.01 260);
+  --chart-5: oklch(0.88 0.008 260);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.985 0.002 260);
+  --sidebar-foreground: oklch(0.21 0.012 260);
+  --sidebar-accent: oklch(0.955 0.004 260);
+  --sidebar-accent-foreground: oklch(0.21 0.012 260);
+  --sidebar-border: oklch(0.925 0.004 260);
+  --status-good: oklch(0.5 0.12 150);
+  --status-warning: oklch(0.56 0.12 70);
+  --status-serious: oklch(0.55 0.14 45);
+  --status-critical: oklch(0.53 0.18 25);
 }
 
 /* ---- ACCENT: primary color ---- */
 
-/* Foundrio terra-cotta / warm brick — #B5472B ≈ oklch(0.52 0.15 35) */
+/* Foundrio terra-cotta — #B5472B ≈ oklch(0.52 0.15 35).
+ * chart-2 intentionally NOT set: secondary series stay neutral so
+ * the accent series is the only colored line on a chart. */
 html[data-theme="foundrio"] {
   --primary: oklch(0.52 0.15 35);
-  --primary-foreground: oklch(0.985 0 0);
-  --primary-hover: oklch(0.59 0.14 35);
-  --primary-soft: oklch(0.52 0.15 35 / 0.11);
-  --primary-soft-2: oklch(0.52 0.15 35 / 0.20);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-hover: oklch(0.47 0.15 35);
+  --primary-soft: oklch(0.52 0.15 35 / 0.08);
+  --primary-soft-2: oklch(0.52 0.15 35 / 0.16);
   --ring: oklch(0.52 0.15 35);
   --chart-1: oklch(0.52 0.15 35);
-  --chart-2: oklch(0.60 0.10 50);
   --sidebar-primary: oklch(0.52 0.15 35);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
   --sidebar-ring: oklch(0.52 0.15 35);
+}
+
+/* On dark canvas the brand tone is lifted in lightness (same hue)
+ * so accent text and focus rings keep ≥4.5:1 contrast. */
+html[data-mode="dark"][data-theme="foundrio"] {
+  --primary: oklch(0.68 0.14 38);
+  --primary-foreground: oklch(0.17 0.02 38);
+  --primary-hover: oklch(0.73 0.13 38);
+  --primary-soft: oklch(0.68 0.14 38 / 0.12);
+  --primary-soft-2: oklch(0.68 0.14 38 / 0.22);
+  --ring: oklch(0.68 0.14 38);
+  --chart-1: oklch(0.68 0.14 38);
+  --sidebar-primary: oklch(0.68 0.14 38);
+  --sidebar-primary-foreground: oklch(0.17 0.02 38);
+  --sidebar-ring: oklch(0.68 0.14 38);
 }
 
 :root,
@@ -261,5 +295,35 @@ html[data-theme="rose"] {
   }
   html {
     @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--primary-soft-2);
+  }
+  /* One consistent, clearly visible focus ring — the accent's job. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  /* Numbers in a CRM are compared, not read: keep them aligned. */
+  table,
+  [data-slot="card"] {
+    font-variant-numeric: tabular-nums;
+  }
+  /* Thin, quiet scrollbars so they don't frame content. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

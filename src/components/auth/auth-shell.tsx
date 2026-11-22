@@ -25,12 +25,12 @@ export function AuthShell({ children }: AuthShellProps) {
       {/* ── Brand panel ─────────────────────────────────────── */}
       <div
         className="relative hidden md:flex md:w-[42%] lg:w-[38%] flex-col justify-between overflow-hidden"
-        style={{ background: "oklch(0.125 0.008 65)" }}
+        style={{ background: "oklch(0.155 0.006 260)" }}
         aria-hidden
       >
         {/* Blueprint grid pattern — hairline lines on dark surface */}
         <svg
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.055]"
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.07]"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
@@ -68,7 +68,7 @@ export function AuthShell({ children }: AuthShellProps) {
           {/* Section label in Geist Mono uppercase — architectural touch */}
           <p
             className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em]"
-            style={{ color: "oklch(0.52 0.15 35)" }}
+            style={{ color: "oklch(0.68 0.14 38)" }}
           >
             Design &amp; Consultant
           </p>
@@ -76,14 +76,14 @@ export function AuthShell({ children }: AuthShellProps) {
             className="text-2xl leading-snug font-light"
             style={{
               fontFamily: "var(--font-heading, serif)",
-              color: "oklch(0.88 0.006 65)",
+              color: "oklch(0.95 0.004 260)",
             }}
           >
             Precision tools for<br />architecture teams.
           </p>
           <p
             className="mt-4 text-sm leading-relaxed"
-            style={{ color: "oklch(0.55 0.008 65)" }}
+            style={{ color: "oklch(0.7 0.01 260)" }}
           >
             Manage projects, contacts and<br />client communications from one place.
           </p>
@@ -91,7 +91,7 @@ export function AuthShell({ children }: AuthShellProps) {
           {/* Thin accent rule */}
           <div
             className="mt-8 h-px w-12"
-            style={{ background: "oklch(0.52 0.15 35)" }}
+            style={{ background: "oklch(0.68 0.14 38)" }}
           />
         </div>
       </div>
