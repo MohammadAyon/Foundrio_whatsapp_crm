@@ -26,19 +26,19 @@ export const ROLE_META: Record<
     icon: Crown,
     label: 'owner',
     variant: 'owner',
-    className: 'border-amber-500/40 bg-amber-500/10 text-amber-300',
+    className: 'border-primary/50 bg-primary/15 text-primary font-medium',
   },
   admin: {
     icon: Shield,
     label: 'admin',
     variant: 'admin',
-    className: 'border-primary/40 bg-primary/10 text-primary',
+    className: 'border-primary/30 bg-primary/10 text-primary',
   },
   agent: {
     icon: UserCog,
     label: 'agent',
     variant: 'muted',
-    className: 'border-border bg-muted text-muted-foreground',
+    className: 'border-border bg-muted text-foreground',
   },
   viewer: {
     icon: UserIcon,

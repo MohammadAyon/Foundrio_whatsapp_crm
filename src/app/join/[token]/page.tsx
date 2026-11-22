@@ -229,7 +229,7 @@ export default function JoinPage() {
           <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/10">
             <MailX className="h-6 w-6 text-red-400" />
           </div>
-          <CardTitle className="text-xl text-foreground">
+          <CardTitle className="font-heading text-2xl font-normal text-foreground">
             {t(`fail.${failKey}Title`)}
           </CardTitle>
           <CardDescription className="text-muted-foreground">
@@ -289,7 +289,7 @@ export default function JoinPage() {
       <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
         <UsersRound className="h-6 w-6 text-primary" />
       </div>
-      <CardTitle className="text-xl text-foreground">
+      <CardTitle className="font-heading text-2xl font-normal text-foreground">
         {t.rich('invitedTo', {
           name: peek.account_name,
           account: (chunks) => <span className="text-primary">{chunks}</span>,

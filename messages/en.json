@@ -17,7 +17,7 @@
     "linkInvalid": "That link couldn’t be used to sign you in. If you were confirming your email, it may already be verified — just sign in below. For a password reset, request a new link and open it in the same browser you requested it from."
   },
   "Sidebar": {
-    "title": "CRM Template for WhatsApp",
+    "title": "Foundrio CRM",
     "primaryNav": "Primary",
     "dashboard": "Dashboard",
     "inbox": "Inbox",
@@ -2049,9 +2049,13 @@
         "dark": "dark"
       },
       "themes": {
+        "foundrio": {
+          "name": "Foundrio",
+          "tagline": "Architectural warmth — the Foundrio brand accent."
+        },
         "violet": {
           "name": "Violet",
-          "tagline": "The default — confident, slightly playful."
+          "tagline": "The original — confident, slightly playful."
         },
         "emerald": {
           "name": "Emerald",
@@ -2263,6 +2267,7 @@
   "SignupPage": {
     "passwordsMismatch": "Passwords do not match",
     "passwordTooShort": "Password must be at least 6 characters",
+    "networkError": "Could not connect to the authentication server. Check your Supabase URL and connection, then try again.",
     "checkEmailTitle": "Check your email",
     "checkEmailDesc": "We've sent a confirmation link to <strong>{email}</strong>. Please check your inbox and click the link to verify your account.",
     "backToSignIn": "Back to sign in",

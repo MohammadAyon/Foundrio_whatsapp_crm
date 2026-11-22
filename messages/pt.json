@@ -2049,6 +2049,10 @@
         "dark": "escuro"
       },
       "themes": {
+        "foundrio": {
+          "name": "Foundrio",
+          "tagline": "Calor arquitetônico — o acento da marca Foundrio."
+        },
         "violet": {
           "name": "Violeta",
           "tagline": "O padrão — transmite confiança com um toque descontraído."
@@ -2263,6 +2267,7 @@
   "SignupPage": {
     "passwordsMismatch": "As senhas não coincidem",
     "passwordTooShort": "A senha deve ter pelo menos 6 caracteres",
+    "networkError": "Não foi possível conectar ao servidor de autenticação. Verifique a URL do Supabase e a conexão e tente novamente.",
     "checkEmailTitle": "Verifique seu e-mail",
     "checkEmailDesc": "Enviamos um link de confirmação para <strong>{email}</strong>. Verifique sua caixa de entrada e clique no link para confirmar sua conta.",
     "backToSignIn": "Voltar ao login",

@@ -72,7 +72,7 @@ export function OverviewHeader({
       <div className="min-w-0">
         {data ? (
           <>
-            <h2 className="text-xl font-semibold tracking-tight text-foreground">
+            <h2 className="font-heading text-2xl font-normal tracking-tight text-foreground">
               {firstName
                 ? t(`greeting.${partOfDay(new Date(now))}`, { name: firstName })
                 : t(`greetingNoName.${partOfDay(new Date(now))}`)}

@@ -68,7 +68,7 @@ export function Header({ onOpenSidebar }: HeaderProps) {
         >
           <Menu className="h-5 w-5" />
         </button>
-        <h1 className="truncate text-base font-semibold text-foreground sm:text-lg">
+        <h1 className="truncate font-heading text-lg font-normal tracking-normal text-foreground sm:text-xl">
           {t(titleKey as string)}
         </h1>
       </div>

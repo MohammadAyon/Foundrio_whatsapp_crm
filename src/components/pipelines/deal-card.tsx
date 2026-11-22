@@ -42,16 +42,16 @@ export function DealCard({ deal, stage, onEdit, isOverlay }: DealCardProps) {
         e.stopPropagation();
         onEdit(deal);
       }}
-      className={`group relative w-full cursor-pointer rounded-xl border border-border/50 bg-muted/70 pl-4 pr-3 py-3 text-left shadow-sm transition-all ${
+      className={`group relative w-full cursor-pointer rounded-[var(--radius)] border border-border bg-card pl-4 pr-3 py-3 text-left transition-colors ${
         isOverlay
-          ? "shadow-xl"
-          : "hover:-translate-y-0.5 hover:border-border hover:bg-muted hover:shadow-lg"
+          ? "border-primary/50 shadow-lg"
+          : "hover:border-foreground/30 hover:bg-card-2"
       }`}
     >
-      {/* 4px left accent bar using stage color */}
+      {/* 3px left accent bar using stage color */}
       <span
         aria-hidden
-        className="absolute left-0 top-0 h-full w-1 rounded-l-xl"
+        className="absolute left-0 top-0 h-full w-[3px] rounded-l-[var(--radius)]"
         style={{ backgroundColor: stage?.color ?? "#94a3b8" }}
       />
 
@@ -82,11 +82,11 @@ export function DealCard({ deal, stage, onEdit, isOverlay }: DealCardProps) {
       </div>
 
       <div className="mt-2 flex items-center justify-between">
-        <span className="text-sm font-bold text-primary">
+        <span className="font-mono text-sm font-semibold tabular-nums text-primary">
           {formatCurrency(deal.value, deal.currency)}
         </span>
         {deal.expected_close_date && (
-          <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
+          <span className="flex items-center gap-1 font-mono text-[11px] text-muted-foreground">
             <Calendar className="h-3 w-3" />
             {formatDate(deal.expected_close_date, locale)}
           </span>

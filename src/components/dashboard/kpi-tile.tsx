@@ -60,7 +60,7 @@ export function KpiTile({
 }) {
   return (
     <Card size="sm" className="gap-2 px-4">
-      <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+      <div className="flex items-center gap-1.5 font-mono text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
         <span className="truncate">{title}</span>
         <Tooltip>
           <TooltipTrigger
@@ -72,9 +72,9 @@ export function KpiTile({
           <TooltipContent>{info}</TooltipContent>
         </Tooltip>
       </div>
-      <p className="text-2xl leading-none font-semibold tracking-tight text-foreground tabular-nums">
+      <p className="font-heading text-3xl leading-none font-normal tracking-tight text-foreground tabular-nums">
         {value}
-        {unit ? <span className="ml-1 text-sm font-medium text-muted-foreground">{unit}</span> : null}
+        {unit ? <span className="ml-1 font-sans text-sm font-medium text-muted-foreground">{unit}</span> : null}
       </p>
       <div className="flex items-center justify-between gap-2">
         <DeltaBadge change={change} />

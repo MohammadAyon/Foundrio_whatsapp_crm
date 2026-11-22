@@ -2049,6 +2049,10 @@
         "dark": "다크"
       },
       "themes": {
+        "foundrio": {
+          "name": "파운드리오",
+          "tagline": "건축적 따뜻함 — Foundrio 브랜드 액센트."
+        },
         "violet": {
           "name": "바이올렛",
           "tagline": "자신감에 경쾌함을 더한 기본 테마입니다."
@@ -2263,6 +2267,7 @@
   "SignupPage": {
     "passwordsMismatch": "비밀번호가 일치하지 않습니다",
     "passwordTooShort": "비밀번호는 6자 이상이어야 합니다",
+    "networkError": "인증 서버에 연결할 수 없습니다. Supabase URL과 연결 상태를 확인한 후 다시 시도하세요.",
     "checkEmailTitle": "이메일을 확인하세요",
     "checkEmailDesc": "<strong>{email}</strong>로 확인 링크를 보냈습니다. 받은 편지함에서 링크를 클릭해 계정을 인증하세요.",
     "backToSignIn": "로그인으로 돌아가기",

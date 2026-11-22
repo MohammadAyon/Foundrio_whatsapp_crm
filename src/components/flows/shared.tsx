@@ -188,7 +188,7 @@ export function groupNodeTypesByCategory(
 
 const NODE_HUE: Record<NodeType, { l: number; c: number; h: number }> = {
   start: { l: 0.62, c: 0.13, h: 162 }, // emerald — the start, echoes WhatsApp green
-  send_message: { l: 0.6, c: 0.18, h: 293 }, // violet — the workhorse
+  send_message: { l: 0.52, c: 0.15, h: 35 }, // foundrio accent — the workhorse
   send_buttons: { l: 0.62, c: 0.16, h: 254 }, // cobalt
   send_list: { l: 0.62, c: 0.15, h: 277 }, // indigo
   send_media: { l: 0.65, c: 0.12, h: 210 }, // sky
@@ -196,7 +196,7 @@ const NODE_HUE: Record<NodeType, { l: number; c: number; h: number }> = {
   condition: { l: 0.72, c: 0.15, h: 65 }, // amber — a fork in the road
   set_tag: { l: 0.65, c: 0.15, h: 350 }, // pink
   handoff: { l: 0.65, c: 0.17, h: 16 }, // rose — hands off
-  end: { l: 0.55, c: 0.01, h: 260 }, // neutral grey — terminal
+  end: { l: 0.55, c: 0.01, h: 65 }, // warm neutral grey — terminal
 };
 
 export interface NodeColors {
